@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/A-Star-Playground/static/css/main.ba7d12ba.chunk.css",
+    "main.js": "/A-Star-Playground/static/js/main.8e3c2bb1.chunk.js",
+    "main.js.map": "/A-Star-Playground/static/js/main.8e3c2bb1.chunk.js.map",
+    "runtime-main.js": "/A-Star-Playground/static/js/runtime-main.d2ff22d2.js",
+    "runtime-main.js.map": "/A-Star-Playground/static/js/runtime-main.d2ff22d2.js.map",
+    "static/js/2.285dd25a.chunk.js": "/A-Star-Playground/static/js/2.285dd25a.chunk.js",
+    "static/js/2.285dd25a.chunk.js.map": "/A-Star-Playground/static/js/2.285dd25a.chunk.js.map",
+    "static/js/3.d28b526e.chunk.js": "/A-Star-Playground/static/js/3.d28b526e.chunk.js",
+    "static/js/3.d28b526e.chunk.js.map": "/A-Star-Playground/static/js/3.d28b526e.chunk.js.map",
+    "index.html": "/A-Star-Playground/index.html",
+    "static/css/main.ba7d12ba.chunk.css.map": "/A-Star-Playground/static/css/main.ba7d12ba.chunk.css.map",
+    "static/js/2.285dd25a.chunk.js.LICENSE.txt": "/A-Star-Playground/static/js/2.285dd25a.chunk.js.LICENSE.txt",
+    "static/media/FuturaHandwritten.dbaf4545.ttf": "/A-Star-Playground/static/media/FuturaHandwritten.dbaf4545.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d2ff22d2.js",
+    "static/js/2.285dd25a.chunk.js",
+    "static/css/main.ba7d12ba.chunk.css",
+    "static/js/main.8e3c2bb1.chunk.js"
+  ]
+}
