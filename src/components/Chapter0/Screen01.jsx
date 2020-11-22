@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import Grid from "@material-ui/core/Grid"
 import Backward from "../Navigation/Backward"
 import Forward from "../Navigation/Forward"
 export default function Screen00(props){
@@ -14,6 +15,10 @@ export default function Screen00(props){
         - Shortest path
         <br />- Time efficiency
       </Text>
+      <BottomGrid container justify="space-between" direction="row">
+        <Backward onClick={()=>setChapterStage(0)}/>
+        <Forward onClick={()=>setChapterStage(2)}/>
+      </BottomGrid>
     </Wrapper>
   )
 }
@@ -21,9 +26,18 @@ export default function Screen00(props){
 const Wrapper = styled.div`
   display:flex;
   flex-direction:column;
+  width:100%;
+  align-items:center;
 `
 const Text = styled.p`
   font-size:24px;
+  width:60%;
+`
+const BottomGrid = styled(Grid)`
+  && {
+    margin-top:auto;
+    margin-bottom:72px;
+  }
 `
 
 

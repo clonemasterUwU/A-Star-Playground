@@ -11,5 +11,8 @@ export default function Forward(props){
   )
 }
 const StyledButton = styled(Button)`
-  width:300px;
+  && {
+    width:300px;
+    margin:30px;
+  }
 `

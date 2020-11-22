@@ -9,7 +9,7 @@ export default function Main() {
   return (
     <FontFormat>
     {
-      stage===0?<Chapter0 />
+      stage===0?<Chapter0 setStage={setStage}/>
       :stage===1?<Stage31 />
       :stage===4?<Playground />
       :null
