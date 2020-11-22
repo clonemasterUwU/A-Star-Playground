@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Playground from './Playground'
 import Chapter0 from './Chapter0/Chapter0'
 import Stage31 from './Stage31'
-import Navigation from './Navigation'
+import Navigation from './Navigation/Navigation'
 export default function Main() {
   const [stage,setStage] = useState(0);
   return (
