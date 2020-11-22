@@ -1,8 +1,8 @@
 import {useState} from 'react'
 import styled from 'styled-components'
-import Playground from './Playground'
+import Playground from './Playground/Playground'
 import Chapter0 from './Chapter0/Chapter0'
-import Stage31 from './Stage31'
+import Chapter1 from './Chapter1/Chapter1'
 import Navigation from './Navigation/Navigation'
 export default function Main() {
   const [stage,setStage] = useState(0);
@@ -10,7 +10,7 @@ export default function Main() {
     <FontFormat>
     {
       stage===0?<Chapter0 setStage={setStage}/>
-      :stage===1?<Stage31 />
+      :stage===1?<Chapter1 setStage={setStage}/>
       :stage===4?<Playground />
       :null
     }

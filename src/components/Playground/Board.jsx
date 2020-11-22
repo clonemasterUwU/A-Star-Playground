@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import Node from './Node';
 
-import aStar,{Graph,search} from '../algorithms/Astar';
+import aStar,{Graph,search} from '../../algorithms/Astar';
 import "./Board.css";
 export default function Board(props){
   const {boardSize,heuristic,start,setStart} = props;
