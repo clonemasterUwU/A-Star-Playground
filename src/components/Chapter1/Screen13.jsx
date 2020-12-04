@@ -2,31 +2,32 @@ import styled from "styled-components"
 import Grid from "@material-ui/core/Grid"
 import Backward from "../Navigation/Backward"
 import Forward from "../Navigation/Forward"
-import GreedyBFS from "../Playground/GreedyBFS"
+import Astar from "../Playground/Astar"
 export default function Screen11(props){
   const {setChapterStage} = props;
   return(
     <Wrapper>
       <IntroText>
-        Heuristic
-        <br />
-        Greedy Best First Search
+        A *
       </IntroText>
       <Grid container direction="row" justify="center">
         <Text>
-          Maintain a priority queue
-          <br />Process node with minimize heuristic 
-          <br />(estimated distance between node and endpoint)
+          A* is the combination the best of those two pathfinding algorithms: 
+          <br />prioritize path towards endpoints + 
+          guarantee shortest path
           <br />
+          <br />Maintain a priority queue
+          <br />Process node with combination of weight and heuristic
+          <br />f(x) = g(x) + h(x)
           <br />
-          <br />Problem: The search gives wrong results when "trap"
-          <br />(as shown in the playground)
+          <br />g(x) is the cost to reach x from start 
+          <br />h(x) is the estimated distance between x and end
         </Text>
-        <GreedyBFS />
+        <Astar />
       </Grid>
       <BottomGrid container justify="space-between" direction="row">
-        <Backward onClick={()=>setChapterStage(1)}/>
-        <Forward onClick={()=>setChapterStage(3)}/>
+        <Backward onClick={()=>setChapterStage(2)}/>
+        <Forward onClick={()=>setChapterStage(4)}/>
       </BottomGrid>
     </Wrapper>
   )

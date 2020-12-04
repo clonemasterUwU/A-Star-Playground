@@ -2,6 +2,7 @@ import {useState} from 'react'
 import Screen10 from './Screen10'
 import Screen11 from './Screen11'
 import Screen12 from './Screen12'
+import Screen13 from './Screen13'
 export default function Chapter1(props){
   const {setStage} = props;
   const [chapterStage,setChapterStage] = useState(0);
@@ -11,7 +12,9 @@ export default function Chapter1(props){
     case 1:
       return (<Screen11 setChapterStage={setChapterStage}/>);     
     case 2:
-      return (<Screen12 setChapterStage={setChapterStage}/>);     
+      return (<Screen12 setChapterStage={setChapterStage}/>);
+    case 3:
+      return (<Screen13 setChapterStage={setChapterStage}/>);
     default:
       setStage(2);
       return null;

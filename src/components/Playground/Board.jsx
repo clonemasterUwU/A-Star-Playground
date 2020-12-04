@@ -3,6 +3,7 @@ import Node from './Node';
 
 import aStarSearch from '../../algorithms/Astar';
 import dijkstraSearch from '../../algorithms/Dijkstra';
+import greedybfsSearch from '../../algorithms/GreedyBFS';
 import "./Board.css";
 export default function Board(props){
   const {boardSize,heuristic,start,setStart,algorithm} = props;
@@ -18,17 +19,28 @@ export default function Board(props){
         setBoard(defaultDijkstra(boardSize[0],boardSize[1]));
         setStart(true);
         break;
+      case "greedybfs":
+        setBoard(defaultGreedBFS(boardSize[0],boardSize[1]));
+        setStart(true);
+        break;
+      case "astar":
+        setBoard(defaultGreedBFS(boardSize[0],boardSize[1]));
+        setStart(true);
+        break;
       default:
     }
   },[])
   useEffect(()=>{
     if(start){
       switch(algorithm){
-        case "a*":
+        case "astar":
           setBoard(aStarSearch(board));
           break;
         case "dijkstra":
           setBoard(dijkstraSearch(board));
+          break;
+        case "greedybfs":
+          setBoard(greedybfsSearch(board));
           break;
         default:
       }
@@ -166,6 +178,22 @@ const defaultDijkstra = (row,col) => {
   for(let i=6;i<13;i++) grid[i][8].weight=15;
   grid[10][4].status=1;
   grid[2][12].status=2;
+  return grid;
+}
+const defaultGreedBFS = (row,col) => {
+  const grid = [];
+  for(let i=0;i<row;i++){
+    const row = [];
+    for(let j=0;j<col;j++){
+      row.push(nodeGenerator(i,j));
+    }
+    grid.push(row);
+  }
+  for(let i=3;i<11;i++) grid[3][i].weight=15;
+  for(let i=3;i<10;i++) grid[i][11].weight=15;
+  grid[11][11].weight=15;
+  grid[11][3].status=1;
+  grid[2][11].status=2;
   return grid;
 }
 const weightChange = (board,row,col) => {

@@ -438,7 +438,6 @@ const search=(board,heuristic=mahattan,neighbor=square4)=>{
   pq.push({r:start.r,c:start.c,f:start.h});
   while(pq.size()>0){
     const {r,c,f} = pq.pop();
-    console.log(r,c,f);
     const nextNode = newBoard[r][c]; // nextNode: {r,c,f}
     if(nextNode===end){
       pathTo(nextNode).forEach((node)=>node.isPath=true);
@@ -470,4 +469,4 @@ const search=(board,heuristic=mahattan,neighbor=square4)=>{
 }
 
 
-export {search as default, Graph, astar}
+export {search as default, Graph, astar,mahattan}
