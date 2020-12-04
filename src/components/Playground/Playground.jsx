@@ -5,6 +5,7 @@ import styled from "styled-components"
 export default function Playground(){
   const [boardSize,setBoardSize] = useState([15,15]);
   const [heuristic,setHeuristic] = useState("manhattan");
+  const [algorithm,setAlgorithm] = useState("a*");
   const [start,setStart] = useState(false);
   return(
     <Wrapper>
@@ -15,13 +16,15 @@ export default function Playground(){
         setHeuristic={setHeuristic}
         start={start}
         setStart={setStart}
-
+        algorithm={algorithm}
+        setAlgorithm={setAlgorithm}
       />
       <StyledBoard
         start={start}
         setStart={setStart}
         boardSize={boardSize}
         heuristic={heuristic}
+        algorithm={algorithm}
       />
     </Wrapper>
   )

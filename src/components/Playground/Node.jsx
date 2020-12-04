@@ -2,7 +2,7 @@
 import styled  from 'styled-components';
 
 export default function Node(props){
-  const { onRightClick,nodeInfo:{row,col,status,weight,isPath}, onMouseUp, onMouseDown, onMouseEnter } = props;
+  const { onRightClick,nodeInfo:{row,col,status,weight,isPath,f}, onMouseUp, onMouseDown, onMouseEnter } = props;
 return(
   <StyleNode
     row={row}
@@ -14,14 +14,17 @@ return(
     onMouseDown={(event)=>onMouseDown(event,row,col)}
     onMouseUp={(event)=>onMouseUp(event,row,col)}
     onMouseEnter={(event)=>onMouseEnter(event,row,col)}
-  />
+  >
+    {f===0?'':f}
+  </StyleNode>
     
 )
 }
 const StyleNode = styled.td`
   width: 25px;
   height: 25px;
-  border: 1px solid rgb(175, 216, 248);  
+  border: 1px solid rgb(175, 216, 248);
+  font-size:13px;  
   background-color: ${props=>props.status===1?`rgb(248, 131, 131)`
                             :props.status===2?`rgb(129, 127, 252)`
                             :props.isPath===true?`rgb(219, 241, 70)`

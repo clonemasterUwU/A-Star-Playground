@@ -450,7 +450,7 @@ const search=(board,heuristic=mahattan,neighbor=square4)=>{
         if(!node.closed && !node.isWall){
           if(node.visited && nextNode.g + node.weight < node.g){
             node.parent = nextNode;
-            node.g = nextNode.g + nextNode.weight;
+            node.g = nextNode.g + node.weight;
             node.f = node.g + node.h;
             pq.push({r:node.r,c:node.c,f:node.f});
           } else if(!node.visited){
@@ -470,4 +470,4 @@ const search=(board,heuristic=mahattan,neighbor=square4)=>{
 }
 
 
-export {astar as default, Graph, search}
+export {search as default, Graph, astar}

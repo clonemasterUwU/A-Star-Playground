@@ -23,8 +23,8 @@ const search = (board,neighbor=square4)=>{
   const pq = new PriorityQueue((a,b)=>a.f<b.f);
   const newBoard = board.slice();
   const {start,end} = _reset(newBoard);
-  pq.push(start);
-  while(!pq.isEmpty){
+  pq.push({r:start.r,c:start.c,f:0});
+  while(pq.size()>0){
     const {r,c,f} = pq.pop();
     const current = newBoard[r][c];
     if(current===end){
@@ -35,7 +35,7 @@ const search = (board,neighbor=square4)=>{
       current.closed = true;
       neighbor(current,newBoard).forEach((node)=>{
         if(!node.closed&&!node.isWall){
-          if(node.visited&&f+node.weight<node.f){
+          if(node.visited&&current.f+node.weight<node.f){
             node.parent = current;
             node.f = f + node.weight;
             pq.push({r:node.r,c:node.c,f:node.f});
@@ -51,3 +51,4 @@ const search = (board,neighbor=square4)=>{
   }
   return newBoard;
 }
+export default search;

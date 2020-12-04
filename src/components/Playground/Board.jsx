@@ -1,10 +1,11 @@
 import {useEffect, useState} from 'react';
 import Node from './Node';
 
-import aStar,{Graph,search} from '../../algorithms/Astar';
+import aStarSearch from '../../algorithms/Astar';
+import dijkstraSearch from '../../algorithms/Dijkstra';
 import "./Board.css";
 export default function Board(props){
-  const {boardSize,heuristic,start,setStart} = props;
+  const {boardSize,heuristic,start,setStart,algorithm} = props;
   const [board,setBoard] = useState([]);
   const [mousePress,setMousePress] =  useState(0);
   let [nodePress,setNodePress] = useState(null);
@@ -12,8 +13,25 @@ export default function Board(props){
     setBoard(gridGenerator(boardSize[0],boardSize[1]));
   },[boardSize]);
   useEffect(()=>{
+    switch(algorithm){
+      case "dijkstra":
+        setBoard(defaultDijkstra(boardSize[0],boardSize[1]));
+        setStart(true);
+        break;
+      default:
+    }
+  },[])
+  useEffect(()=>{
     if(start){
-      setBoard(search(board));
+      switch(algorithm){
+        case "a*":
+          setBoard(aStarSearch(board));
+          break;
+        case "dijkstra":
+          setBoard(dijkstraSearch(board));
+          break;
+        default:
+      }
       setStart(false);
     }
   },[start,board]);
@@ -135,7 +153,21 @@ const nodeGenerator = (row,col) => {
     status:0,
   }
 }
-
+const defaultDijkstra = (row,col) => {
+  const grid = [];
+  for(let i=0;i<row;i++){
+    const row = [];
+    for(let j=0;j<col;j++){
+      row.push(nodeGenerator(i,j));
+    }
+    grid.push(row);
+  }
+  for(let i=2;i<8;i++) grid[6][i].weight=15;
+  for(let i=6;i<13;i++) grid[i][8].weight=15;
+  grid[10][4].status=1;
+  grid[2][12].status=2;
+  return grid;
+}
 const weightChange = (board,row,col) => {
   const newBoard = board.slice();
   const oldNode = newBoard[row][col];
